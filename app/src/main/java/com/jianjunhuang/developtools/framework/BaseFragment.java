@@ -30,7 +30,8 @@ public abstract class BaseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         view = inflater.inflate(getLayoutId(), container, false);
-
+        initView(view);
+        initListener();
         return view;
 
     }

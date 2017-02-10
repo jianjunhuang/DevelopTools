@@ -1,11 +1,12 @@
 package com.jianjunhuang.developtools;
 
-import android.content.DialogInterface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import com.jianjunhuang.developtools.framework.BaseActivity;
+import com.jianjunhuang.developtools.framework.BaseToast;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
 

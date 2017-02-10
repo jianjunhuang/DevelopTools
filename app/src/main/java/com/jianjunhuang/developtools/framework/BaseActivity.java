@@ -1,16 +1,16 @@
-package com.jianjunhuang.developtools;
+package com.jianjunhuang.developtools.framework;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 /**
+ * Activity 的基类 所有的 Activity 最好都继承该类
+ *
  * 1. 添加 initView 、initListener
  * 2. 设置是否沉浸式（默认开启）
  * 3. findview

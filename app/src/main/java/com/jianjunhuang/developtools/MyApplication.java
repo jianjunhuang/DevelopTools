@@ -2,6 +2,8 @@ package com.jianjunhuang.developtools;
 
 import android.app.Application;
 
+import com.jianjunhuang.developtools.framework.BaseToast;
+
 /**
  * @author jianjunhuang.me@foxmail.com
  * @since 2017/2/10.

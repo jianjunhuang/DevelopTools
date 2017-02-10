@@ -11,6 +11,7 @@ import android.view.ViewGroup;
  * Fragment 的基类
  * 1.findView
  * 2.Toast
+ * 3.判空
  *
  * @author jianjunhuang.me@foxmail.com
  * @since 2017/2/10.
@@ -62,4 +63,12 @@ public abstract class BaseFragment extends Fragment {
     public static void showLong(int msg) {
         BaseToast.showLong(msg);
     }
+
+    protected boolean isStrNll(String str) {
+        if (str != null && !"".equals(str)) {
+            return false;
+        }
+        return true;
+    }
+
 }

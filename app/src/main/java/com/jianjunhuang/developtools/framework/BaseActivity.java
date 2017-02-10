@@ -16,6 +16,7 @@ import android.view.WindowManager;
  * 3. findview
  * 4. 显示 Toast
  * 5. 跳转方法
+ * 6. 判空
  *
  * @author jianjunhuang.me@foxmail.com
  * @since 2017/2/10.

@@ -7,6 +7,7 @@ import android.widget.Button;
 
 import com.jianjunhuang.developtools.framework.BaseActivity;
 import com.jianjunhuang.developtools.framework.BaseToast;
+import com.jianjunhuang.developtools.utils.StoreInfo;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
 
@@ -44,9 +45,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             case R.id.show_long_btn:
                 BaseToast.showLong("long");
                 Log.i("tag","long");
+                StoreInfo.instance().store("long","long");
                 break;
             case R.id.show_short_btn:
-                BaseToast.showShort("short");
+                String str = StoreInfo.instance().getInfo("long","short");
+                BaseToast.showShort(str);
                 Log.i("tag","long");
                 break;
         }

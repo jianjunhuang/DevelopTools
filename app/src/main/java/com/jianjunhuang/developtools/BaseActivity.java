@@ -1,5 +1,6 @@
 package com.jianjunhuang.developtools;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -7,14 +8,39 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 /**
  * 1. 添加 initView 、initListener
+ * 2. 设置是否沉浸式（默认开启）
+ * 3. findview
+ * 4. 显示 Toast
+ * 5. 跳转方法
+ *
  * @author jianjunhuang.me@foxmail.com
  * @since 2017/2/10.
  */
 
 public abstract class BaseActivity extends AppCompatActivity {
+
+
+    /**
+     * 沉浸式标签 默认开启
+     */
+    private boolean isSetStatusBar = false;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (isSetStatusBar) {
+            steepStatusBar();
+        }
+        setContentView(getLayoutId());
+        initView();
+        initListener();
+    }
+
+    protected abstract int getLayoutId();
 
     /**
      * 初始化 ui
@@ -27,23 +53,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract void initListener();
 
     /**
-     * 沉浸式标签 默认开启
-     */
-    private boolean isSetStatusBar = true;
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if(isSetStatusBar){
-            steepStatusBar();
-        }
-    }
-
-    /**
      * 开启沉浸式
      */
-    private void steepStatusBar(){
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+    private void steepStatusBar() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             //透明状态栏
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             //透明导航栏
@@ -53,23 +66,64 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     /**
      * 设置沉浸式（默认开启）
-     * @param isSetStatusBar 默认 true
+     *
+     * @param isSetStatusBar 默认 false
      */
-    protected void setSteepStatuBar(boolean isSetStatusBar){
+    protected void setSteepStatuBar(boolean isSetStatusBar) {
         this.isSetStatusBar = isSetStatusBar;
     }
 
     /**
-     *
      * 实例化 view ，不用再强制转换
      *
      * @param id
      * @param <T>
      * @return
      */
-    protected <T extends View> T findView(int id){
+    protected <T extends View> T findView(int id) {
         View view = findViewById(id);
-        return (T)view;
+        return (T) view;
     }
 
+    public static void showShort(String msg) {
+        BaseToast.showShort(msg);
+    }
+
+    public static void showLong(String msg) {
+        BaseToast.showLong(msg);
+    }
+
+    public static void showShort(int msg) {
+        BaseToast.showShort(msg);
+    }
+
+    public static void showLong(int msg) {
+        BaseToast.showLong(msg);
+    }
+
+    /**
+     * 跳转 带参数
+     * @param clz
+     * @param bundle
+     */
+    public void startActivity(Class<?> clz,Bundle bundle){
+        Intent intent = new Intent();
+        intent.setClass(this,clz);
+        if(bundle != null){
+            intent.putExtras(bundle);
+        }
+        startActivity(intent);
+    }
+
+    /**
+     * 跳转 不带参数
+     * @param clz
+     */
+    public void startActivity(Class<?> clz){
+        startActivity(clz,null);
+    }
+
+
 }
+
+

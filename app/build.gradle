@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+version = "0.0.1"
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -7,6 +9,7 @@ android {
         applicationId "com.jianjunhuang.developtools"
         minSdkVersion 15
         targetSdkVersion 25
+        resourcePrefix "developtools_"
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -19,11 +22,87 @@ android {
     }
 }
 
+
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.1.1'
     testCompile 'junit:junit:4.12'
+    compile 'com.github.dcendents:android-maven-plugin:1.2'
+}
+
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
+}
+
+def siteUrl = 'https://github.com/jianjunhuang/DevelopTools'   // 项目的主页
+def gitUrl = 'https://github.com/jianjunhuang/DevelopTools.git'   // Git仓库的url
+group = "com.jianjunhuang"            // Maven Group ID for the artifact，
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'aar'
+                // Add your description here
+                name 'some develop tools'     //项目的描述 你可以多写一点
+                url siteUrl
+                // Set your license
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'jianjunhuang'        //填写的一些基本信息
+                        name 'jianjunhuang'
+                        email 'jianjunhuang.me@foxmail.com'
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+Properties properties = new Properties()
+//读取properties的配置信息，当然直接把信息写到代码里也是可以的
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+bintray {
+    user = properties.getProperty("jianjunhuang")
+    key = properties.getProperty("742e85fd4b5c873d6ac276175827b9c3539dc45a")
+    configurations = ['archives']
+    pkg {
+        repo = "maven"          //这个应该是传到maven的仓库的
+        name = "DevelopTools"    //发布的项目名字
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ["Apache-2.0"]
+        publish = true
+    }
 }

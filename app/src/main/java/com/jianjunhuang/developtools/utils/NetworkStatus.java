@@ -6,7 +6,6 @@ import android.net.NetworkInfo;
 
 /**
  * Created by Demon on 2016/6/1.
- * <p/>
  * 判断联网状态
  */
 public class NetworkStatus {
@@ -39,7 +38,7 @@ public class NetworkStatus {
     /**
      * 判断是否有联网
      *
-     * @return
+     * @return true or false
      */
     public boolean isNetAvilable() {
         if (cm == null && info == null) {
@@ -55,7 +54,7 @@ public class NetworkStatus {
     /**
      * 判断是否连接wifi
      *
-     * @return
+     * @return true or false
      */
     public boolean isWifiConnected() {
         if (cm == null && info == null) {
@@ -72,7 +71,7 @@ public class NetworkStatus {
     /**
      * 获取联网状态
      *
-     * @return
+     * @return true or false
      */
     public int getNetWorkStatus() {
         getNetWorkInfo();

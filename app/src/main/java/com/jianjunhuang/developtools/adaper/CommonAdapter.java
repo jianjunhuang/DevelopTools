@@ -20,7 +20,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
     protected int itemLayoutId;
     protected LayoutInflater inflater;
 
-    public CommonAdapter(Context context , List<T> mList , int itemLayoutId){
+    public CommonAdapter(Context context, List<T> mList, int itemLayoutId) {
         this.context = context;
         this.mList = mList;
         this.itemLayoutId = itemLayoutId;
@@ -54,6 +54,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
      *
      * @param viewHolder ViewHolder
      * @param bean       data bean
+     * @param position   position
      */
     public abstract void convert(CommonViewHolder viewHolder, T bean, int position);
 

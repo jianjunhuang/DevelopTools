@@ -6,7 +6,6 @@ import android.widget.Toast;
 /**
  *
  * 对 Toast 的简单封装
- * <p/>
  * 采用的是全局的 context ，所以要在 Application 中进行初始化，传入全局的 context。
  * 避免了静态的 Toast 一直持有 Activity 的引用，造成内存泄漏
  * @author jianjunhuang.me@foxmail.com
@@ -27,7 +26,7 @@ public class BaseToast {
 
     /**
      * 在 Application 中初始化
-     * @param context
+     * @param context Application's context
      */
     public static void init(Context context){
         if(baseToast == null){

@@ -3,7 +3,6 @@ package com.jianjunhuang.developtools.framework;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
@@ -31,7 +30,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private boolean isSetStatusBar = false;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (isSetStatusBar) {
             steepStatusBar();
@@ -77,9 +76,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 实例化 view ，不用再强制转换
      *
-     * @param id
-     * @param <T>
-     * @return
+     * @param id view's id
+     * @param <T> view
+     * @return view
      */
     protected <T extends View> T findView(int id) {
         View view = findViewById(id);
@@ -104,8 +103,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     /**
      * 跳转 带参数
-     * @param clz
-     * @param bundle
+     * @param clz activity class
+     * @param bundle data
      */
     public void startActivity(Class<?> clz,Bundle bundle){
         Intent intent = new Intent();
@@ -118,7 +117,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     /**
      * 跳转 不带参数
-     * @param clz
+     * @param clz activity class
      */
     public void startActivity(Class<?> clz){
         startActivity(clz,null);

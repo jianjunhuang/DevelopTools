@@ -53,9 +53,9 @@ public class CommonViewHolder {
 
     /**
      * get view's instance by id
-     * @param id
-     * @param <T>
-     * @return
+     * @param id view's id
+     * @param <T> view
+     * @return view
      */
     public <T extends View> T getView(int id){
         View view = views.get(id);
@@ -115,9 +115,9 @@ public class CommonViewHolder {
 
     /**
      * set img
-     * @param id
-     * @param bitmap
-     * @return
+     * @param id imageView id
+     * @param bitmap bitmap
+     * @return viewHolder
      */
     public CommonViewHolder setImgeBitmap(int id , Bitmap bitmap){
         ImageView img = getView(id);

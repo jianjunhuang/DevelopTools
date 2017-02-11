@@ -24,8 +24,8 @@ public class StoreInfo {
 
     /**
      * 初始化
-     * @param context
-     * @return
+     * @param context Application's context
+     * @return StoreInfo's instance
      */
     public static StoreInfo init(Context context) {
         if (storeInfo == null) {
@@ -40,7 +40,7 @@ public class StoreInfo {
 
     /**
      * 获取实例
-     * @return
+     * @return StoreInfo's instance
      */
     public static StoreInfo instance() {
         if (storeInfo == null) {
@@ -51,7 +51,7 @@ public class StoreInfo {
 
     /**
      * 设置存储文件的名称
-     * @param fileName
+     * @param fileName store file name
      */
     public void setFileName(String fileName){
         this.fileName = fileName;
@@ -59,17 +59,17 @@ public class StoreInfo {
 
     /**
      * 获取存储文件的名称
-     * @param fileName
-     * @return
+     * @return store file name
      */
-    public String getFileName(String fileName){
+    public String getFileName(){
         return fileName;
     }
 
 
     /**
-     * @param key
-     * @param value
+     * 内部存储方法
+     * @param key store key
+     * @param value store content
      */
     private void storeInside(String key, Object value) {
         sp = context.getSharedPreferences(fileName, Context.MODE_PRIVATE);
@@ -89,9 +89,9 @@ public class StoreInfo {
     }
 
     /**
-     * @param key
-     * @param value
-     * @return
+     * @param key store key
+     * @param value use to replace store content if it is null
+     * @return store content
      */
     private Object getInfoInside(String key, Object value) {
         sp = context.getSharedPreferences(fileName, Context.MODE_PRIVATE);
@@ -111,85 +111,85 @@ public class StoreInfo {
     }
 
     /**
-     * @param key
-     * @param value
+     * @param key store key
+     * @param value store content
      */
     public void store(String key, String value) {
         storeInside(key, value);
     }
 
     /**
-     * @param key
-     * @param value
+     * @param key store key
+     * @param value store content
      */
     public void store(String key, int value) {
         storeInside(key, value);
     }
 
     /**
-     * @param key
-     * @param value
+     * @param key store key
+     * @param value store content
      */
     public void store(String key, boolean value) {
         storeInside(key, value);
     }
 
     /**
-     * @param key
-     * @param value
+     * @param key store key
+     * @param value store content
      */
     public void store(String key, float value) {
         storeInside(key, value);
     }
 
     /**
-     * @param key
-     * @param value
+     * @param key store key
+     * @param value store content
      */
     public void store(String key, long value) {
         storeInside(key, value);
     }
 
     /**
-     * @param key
-     * @param defaultBack
-     * @return
+     * @param key store key
+     * @param defaultBack  use to replace store content if it is null
+     * @return store content
      */
     public String getInfo(String key, String defaultBack) {
         return (String) getInfoInside(key, defaultBack);
     }
 
     /**
-     * @param key
-     * @param defaultBack
-     * @return
+     * @param key store key
+     * @param defaultBack  use to replace store content if it is null
+     * @return store content
      */
     public int getInfo(String key, int defaultBack) {
         return (Integer) getInfoInside(key, defaultBack);
     }
 
     /**
-     * @param key
-     * @param defaultBack
-     * @return
+     * @param key store key
+     * @param defaultBack  use to replace store content if it is null
+     * @return store content
      */
     public float getInfo(String key, float defaultBack) {
         return (Float) getInfoInside(key, defaultBack);
     }
 
     /**
-     * @param key
-     * @param defaultBack
-     * @return
+     * @param key store key
+     * @param defaultBack   use to replace store content if it is null
+     * @return store content
      */
     public boolean getInfo(String key, boolean defaultBack) {
         return (Boolean) getInfoInside(key, defaultBack);
     }
 
     /**
-     * @param key
-     * @param defaultBack
-     * @return
+     * @param key store key
+     * @param defaultBack  use to replace store content if it is null
+     * @return store content
      */
     public long getInfo(String key, long defaultBack) {
         return (Long) getInfoInside(key, defaultBack);

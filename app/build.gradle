@@ -1,12 +1,14 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 version = "0.0.1"
 android {
+
+
+    resourcePrefix "jianjunhuang_" //随意填写
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "com.jianjunhuang.developtools"
         minSdkVersion 15
         targetSdkVersion 25
         resourcePrefix "developtools_"
@@ -94,8 +96,8 @@ Properties properties = new Properties()
 //读取properties的配置信息，当然直接把信息写到代码里也是可以的
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 bintray {
-    user = properties.getProperty("jianjunhuang")
-    key = properties.getProperty("742e85fd4b5c873d6ac276175827b9c3539dc45a")
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
     configurations = ['archives']
     pkg {
         repo = "maven"          //这个应该是传到maven的仓库的

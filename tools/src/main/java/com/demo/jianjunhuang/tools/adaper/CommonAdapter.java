@@ -1,11 +1,10 @@
-package com.jianjunhuang.developtools.adaper;
+package com.demo.jianjunhuang.tools.adaper;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-
 import java.util.List;
 
 /**
@@ -27,6 +26,10 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
         inflater.from(context);
     }
 
+    public void setDataChange(List<T> mList){
+        this.mList = mList;
+        notifyDataSetChanged();
+    }
     @Override
     public int getCount() {
         return mList.size();

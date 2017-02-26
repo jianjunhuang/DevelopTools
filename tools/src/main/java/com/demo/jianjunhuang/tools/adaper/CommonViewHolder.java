@@ -1,4 +1,4 @@
-package com.jianjunhuang.developtools.adaper;
+package com.demo.jianjunhuang.tools.adaper;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -25,44 +25,51 @@ public class CommonViewHolder {
     private int position;
     protected View convertView;
     protected SparseArray<View> views;
+    private ViewGroup parent;
 
-    private CommonViewHolder(Context context, ViewGroup parent,int layoutId,int position){
+    private CommonViewHolder(Context context, ViewGroup parent, int layoutId, int position) {
         this.position = position;
         this.views = new SparseArray<View>();
-        convertView = LayoutInflater.from(context).inflate(layoutId,parent,false);
+        convertView = LayoutInflater.from(context).inflate(layoutId, parent, false);
         convertView.setTag(this);
     }
 
-    public static CommonViewHolder get(Context context,View convertView,ViewGroup parent,int layoutId,int position){
+    public static CommonViewHolder get(Context context, View convertView, ViewGroup parent, int layoutId, int position) {
         CommonViewHolder viewHolder = null;
-        if(convertView == null){
-            viewHolder = new CommonViewHolder(context,parent,layoutId,position);
 
-        }else{
-            viewHolder = (CommonViewHolder)convertView.getTag();
+        if (convertView == null) {
+            viewHolder = new CommonViewHolder(context, parent, layoutId, position);
+
+        } else {
+            viewHolder = (CommonViewHolder) convertView.getTag();
             //refresh position
             viewHolder.position = position;
         }
-
+        viewHolder.parent = parent;
         return viewHolder;
     }
 
-    public int getPosition(){
+    public int getPosition() {
         return position;
+    }
+
+    public ViewGroup getParent() {
+        return parent;
     }
 
     /**
      * get view's instance by id
-     * @param id view's id
+     *
+     * @param id  view's id
      * @param <T> view
      * @return view
      */
-    public <T extends View> T getView(int id){
+    public <T extends View> T getView(int id) {
         View view = views.get(id);
-        if(view == null){
+        if (view == null) {
             view = convertView.findViewById(id);
         }
-        return (T)view;
+        return (T) view;
     }
 
     /**
@@ -82,6 +89,19 @@ public class CommonViewHolder {
      * @return ViewHolder
      */
     public CommonViewHolder setText(int id, String text) {
+        TextView view = getView(id);
+        view.setText(text);
+        return this;
+    }
+
+    /**
+     * set text
+     *
+     * @param id   view id
+     * @param text string
+     * @return ViewHolder
+     */
+    public CommonViewHolder setText(int id, int text) {
         TextView view = getView(id);
         view.setText(text);
         return this;
@@ -115,11 +135,12 @@ public class CommonViewHolder {
 
     /**
      * set img
-     * @param id imageView id
+     *
+     * @param id     imageView id
      * @param bitmap bitmap
      * @return viewHolder
      */
-    public CommonViewHolder setImgeBitmap(int id , Bitmap bitmap){
+    public CommonViewHolder setImgeBitmap(int id, Bitmap bitmap) {
         ImageView img = getView(id);
         img.setImageBitmap(bitmap);
         return this;

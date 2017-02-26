@@ -1,13 +1,16 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
+
+version = "0.0.3"
 android {
 
 
+    resourcePrefix "jianjunhuang_" //随意填写
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "com.jianjunhuang.developtools"
         minSdkVersion 15
         targetSdkVersion 25
+        resourcePrefix "developtools_"
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -27,7 +30,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.1.1'
-    compile project(':tools')
     testCompile 'junit:junit:4.12'
     compile 'com.github.dcendents:android-maven-plugin:1.2'
 }

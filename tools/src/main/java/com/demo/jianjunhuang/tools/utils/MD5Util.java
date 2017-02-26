@@ -1,4 +1,4 @@
-package com.jianjunhuang.developtools.utils;
+package com.demo.jianjunhuang.tools.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

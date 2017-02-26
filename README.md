@@ -3,10 +3,11 @@ some base framework and some useful tools
 
 ## framework
 ### BaseApplication
+初始化了 BaseToast 和 StoreInfo
 ### BaseActivity
 1. 添加 initView 、initListener
 2. 设置是否沉浸式（默认开启）
- ```java
+ ```
  //关闭
  setSteepStatuBar(false);
  ```
@@ -31,9 +32,9 @@ some base framework and some useful tools
  startActivity(IntentActivity.class,bundle);
  ```
 6. 判空
-```
+ ```
 isEmptyOrNull(str);
-```
+ ```
 ### BaseFragment
 1. 添加 initView 、 initListener
 1. findView

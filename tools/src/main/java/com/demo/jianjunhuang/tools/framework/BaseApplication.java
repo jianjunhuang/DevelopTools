@@ -13,10 +13,10 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        initJpush();
+        init();
     }
 
-    private void initJpush() {
+    private void init() {
         //JAnalyticsInterface.init(this);
         BaseToast.init(this);
         StoreInfo.init(this);

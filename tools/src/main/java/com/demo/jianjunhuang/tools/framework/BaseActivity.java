@@ -116,6 +116,15 @@ public abstract class BaseActivity extends AppCompatActivity {
   }
 
   /**
+   * 字符串是否为空
+   * @param str string
+   * @return true - str is empty or null
+   */
+  public boolean isEmptyOrNull(String str){
+    return str == null || str.equals("");
+  }
+
+  /**
    * 跳转 不带参数
    *
    * @param clz activity class

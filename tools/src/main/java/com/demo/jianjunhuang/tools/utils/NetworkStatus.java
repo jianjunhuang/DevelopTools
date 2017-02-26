@@ -71,6 +71,10 @@ public class NetworkStatus {
     /**
      * 获取联网状态
      *
+     * TYPE_WIFI 用 wifi
+     * TYPE_MOBILE 用流量
+     * TYPE_NOCONNECTED 没联网
+     *
      * @return true or false
      */
     public int getNetWorkStatus() {

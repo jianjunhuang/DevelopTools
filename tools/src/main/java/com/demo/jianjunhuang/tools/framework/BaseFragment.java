@@ -64,11 +64,13 @@ public abstract class BaseFragment extends Fragment {
     BaseToast.showLong(msg);
   }
 
-  protected boolean isStrNll(String str) {
-    if (str != null && !"".equals(str)) {
-      return false;
-    }
-    return true;
+  /**
+   * 字符串是否为空
+   * @param str string
+   * @return true - str is empty or null
+   */
+  public boolean isEmptyOrNull(String str){
+    return str == null || str.equals("");
   }
 
   /**

@@ -12,10 +12,12 @@ some base framework and some useful tools
  //关闭
  setSteepStatuBar(false);
  ```
+
 3. findview
  ```
  Button button = findView(R.id.button);
  ```
+
 4. 显示 Toast
  ```
  //短时 Toast
@@ -25,6 +27,7 @@ some base framework and some useful tools
  showLong("toast");
  showLong(R.string.toast);
  ```
+
 5. 跳转方法
  ```
  //不带数据跳转
@@ -32,16 +35,19 @@ some base framework and some useful tools
  //带数据跳转
  startActivity(IntentActivity.class,bundle);
  ```
+
 6. 判空
  ```
  isEmptyOrNull(str);
  ```
+
 ### BaseFragment
 1. 添加 initView 、 initListener
 1. findView
 2. 显示 Toast
 3. 跳转方法
 3. 判空
+
 ### BaseToast
 需要在 Application 中初始化（默认在 BaseApplication 中已经初始化了）
  ```
@@ -52,11 +58,14 @@ some base framework and some useful tools
  BaseToast.showLong("toast");
  BaseToast.showLong(R.string.toast);
  ```
+
  ## utils
+
  ### MD5Util
   ```
   MD5Util.getMD5String(str);
   ```
+
  ### NetworkStatus
   ```
   NetWorkStatus netWorkStatus = new NetWorkStatus(context);
@@ -76,6 +85,7 @@ some base framework and some useful tools
   int type = netWorkStatus.getNetWorkStatus();
 
   ```
+
  ### StoreInfo
  同样，需要在 Application 中初始化（默认在 BaseApplication 中已经初始化了）
  ```
@@ -87,6 +97,7 @@ some base framework and some useful tools
  //清除对应文件的信息
  StoreInfo.instance().clear(key);
  ```
+
 ## adapter
 ```
 CommonAdapter commonAdapter = new CommonAdapter<Bean>(context,list,R.layout.itemlayout){

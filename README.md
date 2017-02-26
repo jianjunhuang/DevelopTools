@@ -6,6 +6,7 @@ some base framework and some useful tools
 初始化了 BaseToast 和 StoreInfo
 ### BaseActivity
 1. 添加 initView 、initListener
+
 2. 设置是否沉浸式（默认开启）
  ```
  //关闭
@@ -33,7 +34,7 @@ some base framework and some useful tools
  ```
 6. 判空
  ```
-isEmptyOrNull(str);
+ isEmptyOrNull(str);
  ```
 ### BaseFragment
 1. 添加 initView 、 initListener

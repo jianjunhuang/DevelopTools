@@ -1,6 +1,7 @@
 # DevelopTools
 some base framework and some useful tools
-
+### 用法
+直接下载引入，因为有时候会用到一些分析软件页面跳转的 SDK 所以直接系在引入可以方便修改
 ## framework
 ### BaseApplication
 初始化了 BaseToast 和 StoreInfo
@@ -59,14 +60,14 @@ some base framework and some useful tools
  BaseToast.showLong(R.string.toast);
  ```
 
- ## utils
+## utils
 
- ### MD5Util
+### MD5Util
   ```
   MD5Util.getMD5String(str);
   ```
 
- ### NetworkStatus
+### NetworkStatus
   ```
   NetWorkStatus netWorkStatus = new NetWorkStatus(context);
   //是否联网
@@ -86,7 +87,7 @@ some base framework and some useful tools
 
   ```
 
- ### StoreInfo
+### StoreInfo
  同样，需要在 Application 中初始化（默认在 BaseApplication 中已经初始化了）
  ```
  StoreInfo.instance().store(key,value);

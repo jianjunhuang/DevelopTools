@@ -6,4 +6,5 @@ package com.demo.jianjunhuang.mvptools.mvp;
  */
 
 public interface IModel {
+  void onDestroy();
 }

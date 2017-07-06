@@ -6,4 +6,6 @@ package com.demo.jianjunhuang.mvptools.mvp;
  */
 
 public interface IPresenter {
+  void onStart();
+  void onDestroy();
 }

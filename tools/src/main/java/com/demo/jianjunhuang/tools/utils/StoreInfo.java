@@ -85,7 +85,7 @@ public class StoreInfo {
         } else if (value instanceof String) {
             editor.putString(key, (String) value);
         }
-        editor.commit();
+        editor.apply();
     }
 
     /**
@@ -197,11 +197,11 @@ public class StoreInfo {
 
     public void clearAll() {
         sp = context.getSharedPreferences(fileName, Context.MODE_PRIVATE);
-        sp.edit().clear().commit();
+        sp.edit().clear().apply();
     }
 
     public void clear(String name) {
         sp = context.getSharedPreferences(fileName, Context.MODE_PRIVATE);
-        sp.edit().remove(name).commit();
+        sp.edit().remove(name).apply();
     }
 }

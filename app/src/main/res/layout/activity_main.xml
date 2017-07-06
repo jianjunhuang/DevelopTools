@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -15,15 +15,15 @@
     tools:context="com.jianjunhuang.developtools.MainActivity">
 
     <Button
-        android:id="@+id/show_short_btn"
+        android:id="@+id/toast_show_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="short" />
+        android:text="toast" />
 
     <Button
-        android:id="@+id/show_long_btn"
+        android:id="@+id/toast_style_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="long" />
+        android:text="change toast" />
 
-</LinearLayout>
+</GridLayout>

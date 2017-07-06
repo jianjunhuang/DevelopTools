@@ -9,6 +9,8 @@ import android.os.Bundle;
  * @since 2017/5/24.
  *
  * 做一些全局的注入操作
+ * destroyed 的操作也在这里调用？
+ *
  */
 
 public class ActivityLifecycle implements Application.ActivityLifecycleCallbacks {

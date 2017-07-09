@@ -2,6 +2,7 @@ package com.jianjunhuang.developtools;
 
 import android.app.Application;
 
+import com.demo.jianjunhuang.mvptools.utils.NetworkUtils;
 import com.demo.jianjunhuang.mvptools.utils.ToastUtils;
 
 /**
@@ -15,6 +16,6 @@ public class MainApplication extends Application {
     public void onCreate() {
         super.onCreate();
         ToastUtils.init(this,R.layout.toast_layout);
+        NetworkUtils.init(this);
     }
-
 }

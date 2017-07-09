@@ -21,9 +21,9 @@
         android:text="toast" />
 
     <Button
-        android:id="@+id/toast_style_btn"
+        android:id="@+id/internet_status_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="change toast" />
+        android:text="internet status" />
 
 </GridLayout>

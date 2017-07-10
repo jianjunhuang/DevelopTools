@@ -1,5 +1,6 @@
 package com.demo.jianjunhuang.mvptools.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
@@ -10,26 +11,37 @@ import java.util.List;
  *         create on 2017/7/6.
  */
 
-public class RecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerViewHolder> {
+public abstract class RecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerViewHolder> {
 
-    private List<T> list;
+    protected List<T> list;
 
-    public RecyclerAdapter(List<T> list){
+    protected int layoutId;
+
+    protected Context context;
+
+    public RecyclerAdapter(Context context, List<T> list, int layoutId) {
         this.list = list;
+        this.context = context;
+        this.layoutId = layoutId;
     }
 
     @Override
     public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
+        RecyclerViewHolder holder = RecyclerViewHolder.get(context, parent, layoutId);
+        return holder;
     }
 
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
-
+        holder.setPosition(position);
+        convert(holder, list.get(position));
     }
+
+    public abstract void convert(RecyclerViewHolder viewHolder, T t);
 
     @Override
     public int getItemCount() {
         return list.size();
     }
+
 }

@@ -27,6 +27,22 @@ public class SPUtils {
     }
 
     /**
+     * 初始化
+     * @param context Application's context
+     * @return StoreInfo's instance
+     */
+    public static SPUtils init(Context context) {
+        if (spUtils == null) {
+            synchronized (SPUtils.class) {
+                if (spUtils == null) {
+                    spUtils = new SPUtils(context);
+                }
+            }
+        }
+        return spUtils;
+    }
+
+    /**
      * 获取实例
      *
      * @param fileName if fileName is null , fileName = "app name"

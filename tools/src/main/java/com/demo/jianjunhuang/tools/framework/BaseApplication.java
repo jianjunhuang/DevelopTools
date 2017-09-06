@@ -17,10 +17,8 @@ public class BaseApplication extends Application {
     }
 
     private void init() {
-        //JAnalyticsInterface.init(this);
         BaseToast.init(this);
         StoreInfo.init(this);
-        //JAnalyticsInterface.setDebugMode(true);
     }
 
 

@@ -21,8 +21,9 @@ import android.widget.TextView;
  *         create on 2017/7/6.
  */
 
-public class RecyclerViewHolder extends RecyclerView.ViewHolder {
+public class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
+    private OnItemClickListener onItemClickListener;
 
     //缓存子views
     private SparseArray<View> mViews;
@@ -220,5 +221,22 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder {
         view.setOnLongClickListener(listener);
         return this;
     }
+
+    @Override
+    public void onClick(View v) {
+        if (onItemClickListener != null) {
+            onItemClickListener.onItemClick(getConvertView(), position);
+        }
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+        getConvertView().setOnClickListener(this);
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(View convertView, int position);
+    }
+
 
 }

@@ -44,4 +44,8 @@ public abstract class RecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerVi
         return list.size();
     }
 
+    public void setOnDataChange(List<T> list) {
+        this.list = list;
+    }
+
 }

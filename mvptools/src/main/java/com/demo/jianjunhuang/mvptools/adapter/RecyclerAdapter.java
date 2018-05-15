@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * @author jianjunhuang.me@foxmail.com
- *         create on 2017/7/6.
+ * create on 2017/7/6.
  */
 
 public abstract class RecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerViewHolder> {
@@ -46,6 +46,7 @@ public abstract class RecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerVi
 
     public void setOnDataChange(List<T> list) {
         this.list = list;
+        notifyDataSetChanged();
     }
 
 }
